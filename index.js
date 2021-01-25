@@ -10,6 +10,12 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/:genre', (req, res) => {
+  db.Products.find({genre: req.params.genre}, (err, moveProperties) => {
+      res.json(moveProperties)
+  })
+})
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })
